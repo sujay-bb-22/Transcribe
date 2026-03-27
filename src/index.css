@@ -1,0 +1,135 @@
+@import "tailwindcss";
+
+/* ---- Font ---- */
+@font-face {
+  font-family: "CohereText";
+  src: url("/CohereText-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ---- CSS Custom Properties ---- */
+:root {
+  --cohere-purple: #863bff;
+  --cohere-deep-purple: #7e14ff;
+  --cohere-cyan: #47bfff;
+  --cohere-lavender: #ede6ff;
+  --cohere-green: #355146;
+  --cohere-bg: #ffffff;
+  --cohere-surface: #f5f5f7;
+  --cohere-surface-light: #eeeef0;
+  --cohere-border: #e0e0e4;
+  --cohere-text: #1a1a2e;
+  --cohere-text-muted: #6b6b80;
+}
+
+/* ---- Global ---- */
+body {
+  background: var(--cohere-bg);
+  color: var(--cohere-text);
+  font-family:
+    "CohereText",
+    system-ui,
+    -apple-system,
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+  margin: 0;
+}
+
+/* ---- Scrollbar ---- */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--cohere-surface);
+}
+::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #aaa;
+}
+
+/* ---- Screen Transitions ---- */
+.screen {
+  position: absolute;
+  inset: 0;
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+.screen-enter {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 10;
+}
+.screen-exit {
+  opacity: 0;
+  transform: scale(1.02);
+  pointer-events: none;
+  z-index: 5;
+}
+.screen-hidden {
+  opacity: 0;
+  transform: scale(0.98);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ---- Keyframes ---- */
+@keyframes pulse-glow {
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+.animate-spin-slow {
+  animation: spin 1.2s linear infinite;
+}
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s ease forwards;
+}
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--cohere-surface) 25%,
+    var(--cohere-surface-light) 50%,
+    var(--cohere-surface) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
