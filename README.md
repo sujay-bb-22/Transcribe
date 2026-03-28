@@ -11,6 +11,9 @@ license: mit
 short_description: Run Cohere Transcribe locally in your browser on WebGPU.
 app_file: dist/index.html
 header: mini
+models:
+- CohereLabs/cohere-transcribe-03-2026
+- onnx-community/cohere-transcribe-03-2026-ONNX
 ---
 
 Check out the configuration reference at https://huggingface.co/docs/hub/spaces-config-reference
